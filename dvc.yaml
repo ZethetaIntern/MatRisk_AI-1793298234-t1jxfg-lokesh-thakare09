@@ -1,0 +1,23 @@
+# Optional DVC pipeline. After installing DVC, run `dvc repro` to track model outputs.
+stages:
+  train:
+    cmd: PYTHONPATH=src python -m matrisk.train_all
+    deps:
+      - src/matrisk/data.py
+      - src/matrisk/material_model.py
+      - src/matrisk/commodity_model.py
+      - src/matrisk/bridge_risk.py
+      - src/matrisk/train_all.py
+      - data/raw/DS1_material_properties_5500.csv
+      - data/raw/DS2_commodity_prices_10yr.csv
+      - data/raw/DS3_infrastructure_bridges_5000.csv
+      - data/raw/DS4_crossdomain_features_daily.csv
+      - data/raw/DS5_element_prices_monthly.csv
+      - data/raw/DS6_historical_failures_2000.csv
+    outs:
+      - models/material_extratrees.joblib
+      - models/bridge_deficiency_rf.joblib
+      - models/commodity_full_data_for_demo.joblib
+    metrics:
+      - outputs/metrics.json:
+          cache: false

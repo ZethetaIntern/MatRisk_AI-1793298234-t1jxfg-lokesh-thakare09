@@ -1,0 +1,132 @@
+{
+  "data_quality": {
+    "datasets": {
+      "materials": {
+        "rows": 5500,
+        "columns": 18,
+        "missing_cell_pct": 0.0,
+        "duplicate_rows": 0
+      },
+      "prices": {
+        "rows": 22952,
+        "columns": 24,
+        "missing_cell_pct": 0.501,
+        "duplicate_rows": 0
+      },
+      "bridges": {
+        "rows": 5000,
+        "columns": 24,
+        "missing_cell_pct": 0.0,
+        "duplicate_rows": 0
+      },
+      "cross_domain": {
+        "rows": 22952,
+        "columns": 12,
+        "missing_cell_pct": 0.259,
+        "duplicate_rows": 0
+      },
+      "element_prices": {
+        "rows": 5280,
+        "columns": 5,
+        "missing_cell_pct": 0.0,
+        "duplicate_rows": 0
+      },
+      "failures": {
+        "rows": 2000,
+        "columns": 18,
+        "missing_cell_pct": 0.0,
+        "duplicate_rows": 0
+      }
+    },
+    "checks": {
+      "material_positive_K_pct": 100.0,
+      "material_positive_G_pct": 100.0,
+      "material_density_positive_pct": 100.0,
+      "poisson_bounds_pct": 100.0,
+      "commodity_count": 8,
+      "commodity_date_min": "2014-01-02",
+      "commodity_date_max": "2024-12-31",
+      "bridge_target_prevalence_pct": 3.24,
+      "cross_domain_key_duplicates": 0,
+      "interpretation": "These CSVs were supplied as project sample datasets; they are treated as sample data, not independently verified live production data."
+    }
+  },
+  "material_metrics": {
+    "formation_energy_per_atom_eV": {
+      "label": "Formation energy (eV/atom)",
+      "mae": 0.74115,
+      "rmse": 0.94032,
+      "r2": 0.5889
+    },
+    "band_gap_eV": {
+      "label": "Band gap (eV)",
+      "mae": 0.88109,
+      "rmse": 1.38524,
+      "r2": 0.6914
+    },
+    "bulk_modulus_GPa": {
+      "label": "Bulk modulus (GPa)",
+      "mae": 47.05245,
+      "rmse": 59.86968,
+      "r2": 0.5054
+    },
+    "shear_modulus_GPa": {
+      "label": "Shear modulus (GPa)",
+      "mae": 32.5059,
+      "rmse": 43.71203,
+      "r2": 0.3345
+    }
+  },
+  "commodity_metrics": {
+    "traditional_only": {
+      "n_test": 4168,
+      "mae_next_day_log_return": 0.016486,
+      "rmse_next_day_log_return": 0.021104,
+      "directional_accuracy_pct": 50.12,
+      "strategy_sharpe_annualised": -0.137,
+      "strategy_total_log_return_sum": -0.7585,
+      "max_drawdown_proxy_pct": -80.92,
+      "transaction_cost_bps_round_trip_assumption": 10,
+      "warning": "Directional toy backtest; not an investment recommendation or fully calibrated production strategy."
+    },
+    "traditional_plus_material": {
+      "n_test": 4168,
+      "mae_next_day_log_return": 0.016462,
+      "rmse_next_day_log_return": 0.02107,
+      "directional_accuracy_pct": 50.34,
+      "strategy_sharpe_annualised": 0.12,
+      "strategy_total_log_return_sum": 0.6645,
+      "max_drawdown_proxy_pct": -60.49,
+      "transaction_cost_bps_round_trip_assumption": 10,
+      "warning": "Directional toy backtest; not an investment recommendation or fully calibrated production strategy."
+    },
+    "traditional_plus_interactions": {
+      "n_test": 4168,
+      "mae_next_day_log_return": 0.016492,
+      "rmse_next_day_log_return": 0.021089,
+      "directional_accuracy_pct": 50.17,
+      "strategy_sharpe_annualised": 0.086,
+      "strategy_total_log_return_sum": 0.4756,
+      "max_drawdown_proxy_pct": -57.21,
+      "transaction_cost_bps_round_trip_assumption": 10,
+      "warning": "Directional toy backtest; not an investment recommendation or fully calibrated production strategy."
+    },
+    "traditional_plus_cross_domain": {
+      "n_test": 4168,
+      "mae_next_day_log_return": 0.016489,
+      "rmse_next_day_log_return": 0.021082,
+      "directional_accuracy_pct": 50.36,
+      "strategy_sharpe_annualised": 0.006,
+      "strategy_total_log_return_sum": 0.0321,
+      "max_drawdown_proxy_pct": -74.6,
+      "transaction_cost_bps_round_trip_assumption": 10,
+      "warning": "Directional toy backtest; not an investment recommendation or fully calibrated production strategy."
+    }
+  },
+  "bridge_metrics": {
+    "positive_prevalence_pct_test": 3.2,
+    "roc_auc": 0.9922,
+    "average_precision": 0.9002,
+    "brier_score": 0.01296
+  }
+}

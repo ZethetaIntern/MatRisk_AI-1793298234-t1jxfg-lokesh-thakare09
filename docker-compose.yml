@@ -1,0 +1,21 @@
+services:
+  dashboard:
+    build: .
+    command: streamlit run app.py --server.address=0.0.0.0 --server.port=8501
+    ports: ["8501:8501"]
+    environment:
+      PYTHONPATH: /app/src
+    depends_on: [api]
+  api:
+    build: .
+    command: uvicorn matrisk.api:app --app-dir src --host 0.0.0.0 --port 8000
+    ports: ["8000:8000"]
+    environment:
+      PYTHONPATH: /app/src
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:v2.17.0
+    command: mlflow server --host 0.0.0.0 --port 5000 --backend-store-uri sqlite:///mlflow.db --default-artifact-root /mlartifacts
+    ports: ["5000:5000"]
+    volumes: ["mlflow-artifacts:/mlartifacts"]
+volumes:
+  mlflow-artifacts:

@@ -1,0 +1,7 @@
+dataset,rows,columns,missing_cell_pct
+materials,5500,18,0.0
+prices,22952,24,0.501
+bridges,5000,24,0.0
+cross_domain,22952,12,0.259
+element_prices,5280,5,0.0
+failures,2000,18,0.0

@@ -1,0 +1,21 @@
+project: MatRisk AI Prototype
+random_seed: 42
+material_model:
+  estimator: ExtraTreesRegressor
+  n_estimators: 120
+  min_samples_leaf: 2
+  holdout_fraction: 0.20
+  split_strategy: GroupShuffleSplit by elemental system
+commodity_model:
+  estimator: HistGradientBoostingRegressor
+  max_iter: 120
+  train_end_exclusive: 2023-01-01
+  transaction_cost_round_trip_bps: 10
+bridge_model:
+  estimator: RandomForestClassifier
+  n_estimators: 180
+  min_samples_leaf: 4
+stress_test:
+  default_paths: 10000
+  severity_range: [0.5, 2.0]
+  note: Scenario transmission rates in src/matrisk/stress.py are illustrative assumptions.

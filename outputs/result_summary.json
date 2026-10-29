@@ -1,0 +1,154 @@
+{
+  "material_holdout": {
+    "n_train": 4334,
+    "n_test": 1166,
+    "split": "GroupShuffleSplit by elemental system (20% holdout)",
+    "per_target": {
+      "formation_energy_per_atom_eV": {
+        "label": "Formation energy (eV/atom)",
+        "mae": 0.74115,
+        "rmse": 0.94032,
+        "r2": 0.5889
+      },
+      "band_gap_eV": {
+        "label": "Band gap (eV)",
+        "mae": 0.88109,
+        "rmse": 1.38524,
+        "r2": 0.6914
+      },
+      "bulk_modulus_GPa": {
+        "label": "Bulk modulus (GPa)",
+        "mae": 47.05245,
+        "rmse": 59.86968,
+        "r2": 0.5054
+      },
+      "shear_modulus_GPa": {
+        "label": "Shear modulus (GPa)",
+        "mae": 32.5059,
+        "rmse": 43.71203,
+        "r2": 0.3345
+      }
+    },
+    "physics_audit_raw_data": {
+      "rows": 5500,
+      "positive_K_G_density_pct": 100.0,
+      "poisson_bounds_pct": 100.0,
+      "all_basic_bounds_pct": 100.0,
+      "elastic_consistency_10pct_pct": 95.0,
+      "median_elastic_relative_gap_pct": 3.46,
+      "note": "Elastic consistency uses a 10% relative-gap tolerance; this is a data audit, not a PINN result."
+    }
+  },
+  "commodity_ablation": {
+    "traditional_only": {
+      "n_test": 4168,
+      "mae_next_day_log_return": 0.016486,
+      "rmse_next_day_log_return": 0.021104,
+      "directional_accuracy_pct": 50.12,
+      "strategy_sharpe_annualised": -0.137,
+      "strategy_total_log_return_sum": -0.7585,
+      "max_drawdown_proxy_pct": -80.92,
+      "transaction_cost_bps_round_trip_assumption": 10,
+      "warning": "Directional toy backtest; not an investment recommendation or fully calibrated production strategy."
+    },
+    "traditional_plus_material": {
+      "n_test": 4168,
+      "mae_next_day_log_return": 0.016462,
+      "rmse_next_day_log_return": 0.02107,
+      "directional_accuracy_pct": 50.34,
+      "strategy_sharpe_annualised": 0.12,
+      "strategy_total_log_return_sum": 0.6645,
+      "max_drawdown_proxy_pct": -60.49,
+      "transaction_cost_bps_round_trip_assumption": 10,
+      "warning": "Directional toy backtest; not an investment recommendation or fully calibrated production strategy."
+    },
+    "traditional_plus_interactions": {
+      "n_test": 4168,
+      "mae_next_day_log_return": 0.016492,
+      "rmse_next_day_log_return": 0.021089,
+      "directional_accuracy_pct": 50.17,
+      "strategy_sharpe_annualised": 0.086,
+      "strategy_total_log_return_sum": 0.4756,
+      "max_drawdown_proxy_pct": -57.21,
+      "transaction_cost_bps_round_trip_assumption": 10,
+      "warning": "Directional toy backtest; not an investment recommendation or fully calibrated production strategy."
+    },
+    "traditional_plus_cross_domain": {
+      "n_test": 4168,
+      "mae_next_day_log_return": 0.016489,
+      "rmse_next_day_log_return": 0.021082,
+      "directional_accuracy_pct": 50.36,
+      "strategy_sharpe_annualised": 0.006,
+      "strategy_total_log_return_sum": 0.0321,
+      "max_drawdown_proxy_pct": -74.6,
+      "transaction_cost_bps_round_trip_assumption": 10,
+      "warning": "Directional toy backtest; not an investment recommendation or fully calibrated production strategy."
+    }
+  },
+  "bridge_holdout": {
+    "n_train": 4000,
+    "n_test": 1000,
+    "positive_prevalence_pct_test": 3.2,
+    "roc_auc": 0.9922,
+    "average_precision": 0.9002,
+    "brier_score": 0.01296,
+    "target_definition": "structurally_deficient (0/1) in the supplied sample file",
+    "warning": "Classifier probability is a deficiency-risk proxy, not a calibrated annual loan-default probability."
+  },
+  "stress_scenarios_100m": [
+    {
+      "scenario": "Rare earth supply crisis",
+      "assumed_mean_impact_pct": 2.5,
+      "expected_loss_usd": 2482575.21179618,
+      "var_95_usd": 5292657.991981793,
+      "var_99_usd": 6504929.643927059,
+      "tvar_99_5_usd": 7486537.260458252,
+      "simulated_gain_probability_pct": 7.33
+    },
+    {
+      "scenario": "Steel quality shift",
+      "assumed_mean_impact_pct": 6.0,
+      "expected_loss_usd": 5969250.373757964,
+      "var_95_usd": 10928219.985850222,
+      "var_99_usd": 13067522.901047753,
+      "tvar_99_5_usd": 14799771.636102794,
+      "simulated_gain_probability_pct": 2.33
+    },
+    {
+      "scenario": "Climate corrosion",
+      "assumed_mean_impact_pct": 4.0,
+      "expected_loss_usd": 3974375.3114649705,
+      "var_95_usd": 8106849.988208518,
+      "var_99_usd": 9889602.417539794,
+      "tvar_99_5_usd": 11333143.030085664,
+      "simulated_gain_probability_pct": 5.779999999999999
+    },
+    {
+      "scenario": "Recycled-material mandate",
+      "assumed_mean_impact_pct": 1.5,
+      "expected_loss_usd": 1489750.1245859882,
+      "var_95_usd": 3142739.995283408,
+      "var_99_usd": 3855840.967015918,
+      "tvar_99_5_usd": 4433257.2120342655,
+      "simulated_gain_probability_pct": 6.94
+    },
+    {
+      "scenario": "Novel alloy discovery",
+      "assumed_mean_impact_pct": -2.5,
+      "expected_loss_usd": -2520499.7508280235,
+      "var_95_usd": 785479.9905668149,
+      "var_99_usd": 2211681.934031835,
+      "tvar_99_5_usd": 3366514.424068531,
+      "simulated_gain_probability_pct": 89.51
+    }
+  ],
+  "esg_steel_10000kg_example": {
+    "quantity_kg": 10000.0,
+    "baseline_emissions_kgco2e": 20900.0,
+    "substitute_emissions_kgco2e": 3800.0,
+    "avoided_emissions_kgco2e": 17100.0,
+    "avoided_emissions_tco2e": 17.1,
+    "incremental_cost_usd": 1480.0,
+    "cost_per_tco2e_avoided_usd": 86.54970760233917
+  }
+}
